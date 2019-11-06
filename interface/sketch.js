@@ -1,17 +1,19 @@
 /*
-	character designer
+	interface
 	user interface
-	10.16.2019
+	10.20.2019
 */
-
-var num = 10;
+var r = 0;
+var g = 0;
+var b = 0;
+var num = 50;
 var nameInput;
 
 function setup() {
 	createCanvas(windowWidth, 600);
 	pattern();
 	
-	var button = createButton("Generate Pattern");
+	var button = createButton("change back");
 	button.mouseClicked(pattern);
 	
 	nameInput = createInput("Name the file");
@@ -19,9 +21,39 @@ function setup() {
 	saveButton.mouseClicked(saveImage);
 	
 	createP("Change pattern");
-	var numSlider = createSlider(2, 100, num);
+	var numSlider = createSlider(1, 100, num);
 	numSlider.input(getNum);
+    
+    createP("Change background color Red");
+	var redSlider = createSlider();
+	redSlider.input(getRed);
+    
+     createP("Change background color Green");
+	var greenSlider = createSlider();
+	greenSlider.input(getgreen);
+    
+    createP("Change background color Blue");
+	var blueSlider = createSlider();
+	blueSlider.input(getblue);
+    
+    
+    
 	
+}
+
+function getRed() {
+	r = this.value();
+	pattern();
+}
+
+function getgreen() {
+	g = this.value();
+	pattern();
+}
+
+function getblue() {
+	b = this.value();
+	pattern();
 }
 
 function getNum() {
@@ -34,26 +66,21 @@ function saveImage() {
 }
 
 
+
+
 function pattern() {
-	background('purple');
+	background(r,g,b);
+    
 	noStroke();
-	fill('orange');
+	
 	
 	for (let i = 0; i < num; i++) {
+        fill("orange");
 		ellipse(random(width), random(height), random(50, 100));
-        
-      
-        
+        fill("green");
+        rect( random(width) , random( height) , random(100) , random(100));
+
 	}
-
-//	for (let x = 0; x < width; x += 100) {
-//		ellipse(x, random(height), random(50, 100));
-//	}
-}
-
-
-
-
-
+    }
 
 
