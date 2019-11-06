@@ -23,7 +23,7 @@ function draw() {
 
     function ghost(x, y, s,r) {
         
-        fill(r,100,200,300,50);
+        fill(r,100,250,300);
         rect(x - 20, y + 50 - s + 50, s / 2, s - 25); // head
 
         rect(x - 15, y + 55 - s + 55, s / 2, s - 15); // head
